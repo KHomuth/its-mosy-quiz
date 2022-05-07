@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 28,
     top: 85,
-    color: '#ffffff'
+    color: '#ffffff',
+    position: 'absolute'
   }
 });
