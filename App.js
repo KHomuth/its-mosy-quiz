@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Landingpage</Text>
+      <Text style={styles.titleText}>Life under Water</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +13,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#003ca0',
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 28,
+    top: 85,
+    color: '#ffffff'
+  }
 });
