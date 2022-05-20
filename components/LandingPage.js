@@ -1,8 +1,19 @@
 import * as React from "react";
-import reactDom from "react-dom";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { useFonts } from "expo-font";
+
 
 export default function LandingPage({ navigation }) {
+    
+  const [loaded] = useFonts({
+      Roboto: require('../assets/fonts/Roboto/Roboto-Black.ttf'),
+      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+    });
+    
+    if (!loaded) {
+      return null;
+    }
+
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
@@ -30,7 +41,7 @@ const styles = StyleSheet.create({
       position: 'absolute'
     },
     titleText: {
-      fontFamily: 'Zen Loop',
+      fontFamily: 'ZenLoop',
       fontSize: 60,
       color: '#6eb5a9',
       marginLeft: 20, 
