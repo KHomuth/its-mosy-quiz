@@ -8,10 +8,10 @@ export default function LandingPage({ navigation }) {
         <View style={styles.container}>
           <Text style={styles.titleText}>Life Below Water</Text>
           <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
-          <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('Quiz')}>
+          <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('Quiz')}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('Infos')}>
+          <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('Infos')}>
             <Text style={styles.buttonText}>Mehr Infos?</Text>
           </TouchableHighlight>
         </View>
@@ -52,7 +52,10 @@ const styles = StyleSheet.create({
       borderRadius: 10,
     },
     buttonText: {
+      fontFamily: 'Roboto',
+      fontSize: 17,
       color: '#ece6dd',
       textAlign: 'center',
+      marginTop: 2,
     }
 });

@@ -8,16 +8,16 @@ export default function LandingPage({ navigation }) {
         <View style={styles.container}>
         <Text style={styles.countdown}>12:23</Text>
           <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('A')}>
-            <Text style={styles.answerText}>Quiz starten!</Text>
+            <Text style={styles.answerText}>Lorem ipsum dolor sit</Text>
           </TouchableHighlight>
           <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('B')}>
-            <Text style={styles.answerText}>Mehr Infos?</Text>
+            <Text style={styles.answerText}>Consetetur sadipscing elitr</Text>
           </TouchableHighlight>
           <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('C')}>
-            <Text style={styles.answerText}>Mehr Infos?</Text>
+            <Text style={styles.answerText}>1000 ipsum dolor</Text>
           </TouchableHighlight>
           <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('D')}>
-            <Text style={styles.answerText}>Mehr Infos?</Text>
+            <Text style={styles.answerText}>Ipsum dolor </Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -64,8 +64,9 @@ const styles = StyleSheet.create({
     answerText: {
       color: '#265e85',
       fontFamily: 'Roboto',
-      fontSize: 20,
+      fontSize: 24,
       textAlign: 'center',
+      marginTop: 31,
     },
     countdown: {
       fontFamily: 'Roboto',

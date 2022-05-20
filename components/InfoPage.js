@@ -9,13 +9,13 @@ export default function InfoPage({ navigation }) {
         <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
         12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
         </Text>
-        <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('xy')}>
+        <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('xy')}>
           <Text style={styles.buttonText}>weiterlesen</Text>
         </TouchableHighlight>
         <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
         12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
         </Text>
-        <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('xy')}>
+        <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('xy')}>
           <Text style={styles.buttonText}>weiterlesen</Text>
         </TouchableHighlight>
       </View>
@@ -56,7 +56,10 @@ const styles = StyleSheet.create({
       borderRadius: 10,
     },
     buttonText: {
+      fontFamily: 'Roboto',
+      fontSize: 17,
       color: '#ece6dd',
       textAlign: 'center',
+      marginTop: 2,
     }
 });
