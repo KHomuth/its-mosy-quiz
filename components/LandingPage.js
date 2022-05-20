@@ -6,7 +6,7 @@ import { useFonts } from "expo-font";
 export default function LandingPage({ navigation }) {
     
   const [loaded] = useFonts({
-      Roboto: require('../assets/fonts/Roboto/Roboto-Black.ttf'),
+      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
       ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
     });
     
