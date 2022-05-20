@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 
 export default function InfoPage({ navigation }) {
     return (
@@ -9,15 +9,15 @@ export default function InfoPage({ navigation }) {
         <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
         12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
         </Text>
-        <Pressable onPress={() => navigation.navigate('xy')}>
-          <Text style={styles.button}>weiterlesen</Text>
-        </Pressable>
+        <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('xy')}>
+          <Text style={styles.buttonText}>weiterlesen</Text>
+        </TouchableHighlight>
         <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
         12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
         </Text>
-        <Pressable onPress={() => navigation.navigate('xy')}>
-          <Text style={styles.button}>weiterlesen</Text>
-        </Pressable>
+        <TouchableHighlight style={styles.button} onPress={() => navigation.navigate('xy')}>
+          <Text style={styles.buttonText}>weiterlesen</Text>
+        </TouchableHighlight>
       </View>
     </View>
     );
@@ -47,8 +47,6 @@ const styles = StyleSheet.create({
     },
     button: {
       backgroundColor: '#6eb5a9',
-      color: '#ece6dd',
-      textAlign: 'center',
       marginBottom: 10,
       marginLeft: 20, 
       height: 30,
@@ -56,5 +54,9 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: '#6eb5a9',
       borderRadius: 10,
+    },
+    buttonText: {
+      color: '#ece6dd',
+      textAlign: 'center',
     }
 });
