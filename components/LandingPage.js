@@ -1,6 +1,7 @@
 import * as React from "react";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
+import style from "../App.module.css";
 
 
 export default function LandingPage({ navigation }) {
@@ -17,6 +18,9 @@ export default function LandingPage({ navigation }) {
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
+                <TouchableOpacity style={style.partybtn}>
+                  <Text>Testbutton style</Text>
+                </TouchableOpacity>
           <Text style={styles.titleText}>Life Below Water</Text>
           <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
           <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('Quiz')}>
