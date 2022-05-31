@@ -17,7 +17,7 @@ export default function LandingPage({ navigation }) {
     //Make API Call to get question, phase and time
     async function getTdData() {
       try {
-        const response = await fetch('127.0.0.1:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
+        const response = await fetch('http://127.0.0.1:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
