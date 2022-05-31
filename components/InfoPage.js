@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#265e85',
   },
     titleText: {
-      fontFamily: 'Zen Loop',
+      fontFamily: 'ZenLoop',
       fontSize: 60,
       color: '#6eb5a9',
       marginLeft: 20, 

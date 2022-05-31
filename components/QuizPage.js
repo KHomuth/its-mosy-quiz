@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     container: {
       top: 85,
       position: 'absolute',
-      maxWidth: '75%',
+      maxWidth: 768,
       flex: 1,
       justifyContent: 'center',
       alignContent: 'center',

@@ -17,7 +17,7 @@ export default function LandingPage({ navigation }) {
     //Make API Call to get question, phase and time
     async function getTdData() {
       try {
-        const response = await fetch('http://192.168.2.103:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
+        const response = await fetch('127.0.0.1:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
@@ -45,7 +45,7 @@ export default function LandingPage({ navigation }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           <Text style={styles.titleText}>Life Below Water</Text>
-          <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
+          <Text style={[styles.text, styles.textCenter]}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
           <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableHighlight>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     container: {
       top: 85,
       position: 'absolute',
-      maxWidth: '75%',
+      maxWidth: 768,
       flex: 1,
       justifyContent: 'center',
       alignContent: 'center',
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
       fontSize: 20,
       color: '#ece6dd',
       margin: 20,
+    },
+    textCenter: {
+      textAlign: 'center',
     },
     button: {
       backgroundColor: '#6eb5a9',

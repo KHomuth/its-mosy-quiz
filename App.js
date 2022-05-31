@@ -22,7 +22,9 @@ export default function App() {
             headerStyle: {
               backgroundColor: '#F2F2F2'
             },
-            headerTintColor: '#00517A'
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
           }}
           initialParams={{index: 0}}
         />
@@ -33,7 +35,9 @@ export default function App() {
             headerStyle: {
               backgroundColor: '#F2F2F2'
             },
-            headerTintColor: '#00517A'
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
           }}
           initialParams={{index: 0}}
         />  

@@ -17,7 +17,7 @@ export default function QuestionOption (props) {
         answer: answer  
       };
 
-      fetch('http://192.168.2.103:9980/api/v1.0/answers', {
+      fetch('http://127.0.0.1:9980/api/v1.0/answers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
