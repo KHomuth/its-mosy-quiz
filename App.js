@@ -8,24 +8,36 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name='Home'
-            component={LandingPage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name='Quiz'
-            component={QuizPage}
-            initialParams={{index: 0}}
-          />
-          <Stack.Screen
-            name='Infos'
-            component={InfoPage}
-            initialParams={{index: 0}}
-          />  
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Home'
+          component={LandingPage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Quiz'
+          component={QuizPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+            headerTintColor: '#00517A'
+          }}
+          initialParams={{index: 0}}
+        />
+        <Stack.Screen
+          name='Infos'
+          component={InfoPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+            headerTintColor: '#00517A'
+          }}
+          initialParams={{index: 0}}
+        />  
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
