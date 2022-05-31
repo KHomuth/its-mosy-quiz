@@ -13,14 +13,32 @@ export default function App() {
         <Stack.Screen
           name='Home'
           component={LandingPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+                headerTintColor: '#00517A'
+            }}
         />
         <Stack.Screen
           name='Quiz'
           component={QuizPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+                headerTintColor: '#00517A'
+            }}
         />
         <Stack.Screen
           name='Infos'
           component={InfoPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+                headerTintColor: '#00517A'
+            }}
         />  
       </Stack.Navigator>
     </NavigationContainer>
