@@ -1,25 +1,31 @@
 import * as React from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import Questions from "../Questions.json";
+import { useFonts } from "expo-font";
 
-export default function InfoPage({ navigation }) {
+export default function InfoPage({ navigation, route }) {
+    const [loaded] = useFonts({
+      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
+      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+    });
+      
+    if (!loaded) {
+      return null;
+    }
+
+    const {index} = route.params;
+
     return (
       <View style={styles.containerBackground}>
-      <View style={styles.container}>
-        <Text style={styles.titleText}>Weiterführende Informationen</Text>
-        <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-        12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
-        </Text>
-        <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('xy')}>
-          <Text style={styles.buttonText}>weiterlesen</Text>
-        </TouchableHighlight>
-        <Text style={styles.text}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-        12.000 sed diam nonumy eirmod tempor invidunt ipsum. Lnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et.  
-        </Text>
-        <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => navigation.navigate('xy')}>
-          <Text style={styles.buttonText}>weiterlesen</Text>
-        </TouchableHighlight>
+        <View style={styles.container}>
+          <Text style={styles.titleText}>Weiterführende Informationen</Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>
+              {Questions.Fragen[index].Zusatztext}
+            </Text>
+          </View>
+        </View>
       </View>
-    </View>
     );
 }
 
@@ -28,10 +34,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#265e85',
     alignItems: 'center',
+    height: '100%'
   },
   container: {
     top: 85,
-    position: 'absolute'
+    position: 'absolute',
+    backgroundColor: '#265e85',
   },
     titleText: {
       fontFamily: 'Zen Loop',
@@ -61,5 +69,5 @@ const styles = StyleSheet.create({
       color: '#ece6dd',
       textAlign: 'center',
       marginTop: 2,
-    }
+    },
 });

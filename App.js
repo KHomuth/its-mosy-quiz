@@ -8,21 +8,24 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator title="Zurück">
-        <Stack.Screen
-          name='Home'
-          component={LandingPage}
-        />
-        <Stack.Screen
-          name='Quiz'
-          component={QuizPage}
-        />
-        <Stack.Screen
-          name='Infos'
-          component={InfoPage}
-        />  
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name='Home'
+            component={LandingPage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name='Quiz'
+            component={QuizPage}
+            initialParams={{index: 0}}
+          />
+          <Stack.Screen
+            name='Infos'
+            component={InfoPage}
+            initialParams={{index: 0}}
+          />  
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
