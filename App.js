@@ -9,16 +9,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator title="Zurück">
+      <Stack.Navigator>
         <Stack.Screen
           name='Home'
           component={LandingPage}
-          options={{
-            headerStyle: {
-              backgroundColor: '#F2F2F2'
-            },
-                headerTintColor: '#00517A'
-            }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name='Quiz'
@@ -27,8 +22,11 @@ export default function App() {
             headerStyle: {
               backgroundColor: '#F2F2F2'
             },
-                headerTintColor: '#00517A'
-            }}
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+          }}
+          initialParams={{index: 0}}
         />
         <Stack.Screen
           name='Infos'
@@ -37,8 +35,11 @@ export default function App() {
             headerStyle: {
               backgroundColor: '#F2F2F2'
             },
-                headerTintColor: '#00517A'
-            }}
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+          }}
+          initialParams={{index: 0}}
         />  
       </Stack.Navigator>
     </NavigationContainer>

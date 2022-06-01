@@ -1,24 +1,43 @@
 import * as React from "react";
-import reactDom from "react-dom";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import QuestionOption from "./QuestionOption";
+import Questions from "../Questions.json";
+import { useFonts } from "expo-font";
 
-export default function LandingPage({ navigation }) {
+export default function QuizPage({ route, navigation }) {
+    const [loaded] = useFonts({
+      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
+      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+    });
+      
+    if (!loaded) {
+      return null;
+    }
+
+    const {index} = route.params;
+
+    const pushToArray = (myArray) => {
+      for(const [key, value] of Object.entries(Questions.Fragen[index].Antworten)) {
+        myArray.push(key);
+      }
+    }
+
+    let answerButtons = [];
+
+    pushToArray(answerButtons);
+
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
-        <Text style={styles.countdown}>12:23</Text>
-          <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('A')}>
-            <Text style={styles.answerText}>Lorem ipsum dolor sit</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('B')}>
-            <Text style={styles.answerText}>Consetetur sadipscing elitr</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('C')}>
-            <Text style={styles.answerText}>1000 ipsum dolor</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.answers} onPress={() => navigation.navigate('D')}>
-            <Text style={styles.answerText}>Ipsum dolor </Text>
-          </TouchableHighlight>
+          <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
+          {answerButtons.map((item, index) => (
+            <QuestionOption
+              key={index}
+              value={item}
+              questionIndex={index+1}
+              navigation={navigation}
+            />
+          ))}
         </View>
       </View>
     );
@@ -32,13 +51,12 @@ const styles = StyleSheet.create({
     },
     container: {
       top: 85,
-      position: 'absolute'
-    },
-    titleText: {
-      fontFamily: 'Zen Loop',
-      fontSize: 60,
-      color: '#6eb5a9',
-      marginLeft: 20, 
+      position: 'absolute',
+      maxWidth: 768,
+      flex: 1,
+      justifyContent: 'center',
+      alignContent: 'center',
+      alignItems: 'center'
     },
     text: {
       fontFamily: 'Roboto',
@@ -46,27 +64,8 @@ const styles = StyleSheet.create({
       color: '#ece6dd',
       margin: 20,
     },
-    answers: {
-      backgroundColor: '#a6dde4',
-      color: '#265e85',
-      fontFamily: 'Roboto',
-      fontSize: 20,
+    textCenter: {
       textAlign: 'center',
-      marginBottom: 20,
-      marginLeft: 20, 
-      marginRight: 20,
-      height: 100,
-      width: 300,
-      borderWidth: 1,
-      borderColor: '#a6dde4',
-      borderRadius: 10,
-    },
-    answerText: {
-      color: '#265e85',
-      fontFamily: 'Roboto',
-      fontSize: 24,
-      textAlign: 'center',
-      marginTop: 31,
     },
     countdown: {
       fontFamily: 'Roboto',
