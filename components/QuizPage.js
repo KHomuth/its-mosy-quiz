@@ -34,6 +34,7 @@ export default function QuizPage({ route, navigation }) {
             <QuestionOption
               key={index}
               value={item}
+              btnNum={index}
               questionIndex={index+1}
               navigation={navigation}
             />
@@ -46,7 +47,7 @@ export default function QuizPage({ route, navigation }) {
 const styles = StyleSheet.create({
     containerBackground: {
       flex: 1,
-      backgroundColor: '#265e85',
+      backgroundColor: '#F2F2F2',
       alignItems: 'center',
     },
     container: {
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     text: {
       fontFamily: 'Roboto',
       fontSize: 20,
-      color: '#ece6dd',
+      color: '#00517A',
       margin: 20,
     },
     textCenter: {
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     countdown: {
       fontFamily: 'Roboto',
       fontSize: 30,
-      color: '#ece6dd',
+      color: '#00517A',
       textAlign: 'center',
       marginBottom: 20,
     },

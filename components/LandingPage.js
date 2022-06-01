@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 
 
@@ -46,12 +46,12 @@ export default function LandingPage({ navigation }) {
         <View style={styles.container}>
           <Text style={styles.titleText}>Life Below Water</Text>
           <Text style={[styles.text, styles.textCenter]}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
-          <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => getTdData()}>
+          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
-          </TouchableHighlight>
-          <TouchableHighlight activeOpacity={1} underlayColor="#a6dde4" style={styles.button} onPress={() => getTdData()}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Mehr Infos?</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -60,7 +60,7 @@ export default function LandingPage({ navigation }) {
 const styles = StyleSheet.create({
     containerBackground: {
       flex: 1,
-      backgroundColor: '#265e85',
+      backgroundColor: '#F2F2F2',
       alignItems: 'center',
       justifyContent: 'center',
       alignContent: 'center'
@@ -77,33 +77,31 @@ const styles = StyleSheet.create({
     titleText: {
       fontFamily: 'ZenLoop',
       fontSize: 60,
-      color: '#6eb5a9',
+      color: '#00517A',
       marginLeft: 20, 
     },
     text: {
       fontFamily: 'Roboto',
       fontSize: 20,
-      color: '#ece6dd',
+      color: '#00517A',
       margin: 20,
     },
     textCenter: {
       textAlign: 'center',
     },
     button: {
-      backgroundColor: '#6eb5a9',
-      marginBottom: 10,
+      backgroundColor: '#00517A',
+      marginBottom: 20,
       marginLeft: 20, 
-      height: 30,
-      width: 200,
-      borderWidth: 1,
-      borderColor: '#6eb5a9',
+      marginRight: 20,
+      width: 300,
       borderRadius: 10,
     },
     buttonText: {
       fontFamily: 'Roboto',
-      fontSize: 17,
+      fontSize: 20,
       color: '#ece6dd',
-      textAlign: 'center',
-      marginTop: 2,
+      margin: 20,
+      textAlign: 'center'
     }
 });
