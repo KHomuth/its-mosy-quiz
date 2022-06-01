@@ -1,9 +1,10 @@
 import * as React from "react";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { Text, View } from "react-native";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
+import styles from "../assets/styles/Styles";
 
-export default function InfoPage({ navigation, route }) {
+export default function InfoPage({ route }) {
     const [loaded] = useFonts({
       Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
       ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
@@ -28,29 +29,3 @@ export default function InfoPage({ navigation, route }) {
       </View>
     );
 }
-
-const styles = StyleSheet.create({
-  containerBackground: {
-    flex: 1,
-    backgroundColor: '#F2F2F2',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignContent: 'center'
-  },
-  container: {
-    top: 85,
-    position: 'absolute'
-  },
-    titleText: {
-      fontFamily: 'ZenLoop',
-      fontSize: 60,
-      color: '#00517A',
-      marginLeft: 20, 
-    },
-    text: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      color: '#00517A',
-      margin: 20,
-    }
-});

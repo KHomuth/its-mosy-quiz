@@ -1,8 +1,9 @@
 import * as React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import QuestionOption from "./QuestionOption";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
+import styles from "../assets/styles/Styles";
 
 export default function QuizPage({ route, navigation }) {
     const [loaded] = useFonts({
@@ -43,36 +44,3 @@ export default function QuizPage({ route, navigation }) {
       </View>
     );
 }
-
-const styles = StyleSheet.create({
-    containerBackground: {
-      flex: 1,
-      backgroundColor: '#F2F2F2',
-      alignItems: 'center',
-    },
-    container: {
-      top: 85,
-      position: 'absolute',
-      maxWidth: 768,
-      flex: 1,
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignItems: 'center'
-    },
-    text: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      color: '#00517A',
-      margin: 20,
-    },
-    textCenter: {
-      textAlign: 'center',
-    },
-    countdown: {
-      fontFamily: 'Roboto',
-      fontSize: 30,
-      color: '#00517A',
-      textAlign: 'center',
-      marginBottom: 20,
-    },
-});

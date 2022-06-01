@@ -1,18 +1,19 @@
 import * as React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
+import styles from "../assets/styles/Styles";
 
 
 export default function LandingPage({ navigation }) {
     
-  const [loaded] = useFonts({
-      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
-      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
-  });
-    
-  if (!loaded) {
-    return null;
-  }
+    const [loaded] = useFonts({
+        Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
+        ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+    });
+      
+    if (!loaded) {
+      return null;
+    }
 
     //Make API Call to get question, phase and time
     async function getTdData() {
@@ -56,52 +57,3 @@ export default function LandingPage({ navigation }) {
       </View>
     );
 }
-
-const styles = StyleSheet.create({
-    containerBackground: {
-      flex: 1,
-      backgroundColor: '#F2F2F2',
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignContent: 'center'
-    },
-    container: {
-      top: 85,
-      position: 'absolute',
-      maxWidth: 768,
-      flex: 1,
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignItems: 'center'
-    },
-    titleText: {
-      fontFamily: 'ZenLoop',
-      fontSize: 60,
-      color: '#00517A',
-      marginLeft: 20, 
-    },
-    text: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      color: '#00517A',
-      margin: 20,
-    },
-    textCenter: {
-      textAlign: 'center',
-    },
-    button: {
-      backgroundColor: '#00517A',
-      marginBottom: 20,
-      marginLeft: 20, 
-      marginRight: 20,
-      width: 300,
-      borderRadius: 10,
-    },
-    buttonText: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      color: '#ece6dd',
-      margin: 20,
-      textAlign: 'center'
-    }
-});
