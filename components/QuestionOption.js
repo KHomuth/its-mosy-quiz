@@ -32,9 +32,36 @@ export default function QuestionOption (props) {
         console.error('Error:', error);
       });
     }
+
+    const addBtnStyle = (number) => {
+      if(number == 0) {
+        return {
+          //grün
+          backgroundColor: '#226822'
+        }
+      } 
+      else if (number == 1) {
+        return {
+          //rot
+          backgroundColor: '#B00000'
+        }
+      }
+      else if (number == 2) {
+        return {
+          //blau
+          backgroundColor: '#00517A'
+        }
+      }
+      else {
+        return {
+          //gelb
+          backgroundColor: '#E6AF00'
+        }
+      }
+    }
         
     return (
-          <TouchableOpacity style={styles.answers}>
+          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]}>
             <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
           </TouchableOpacity>
     );
@@ -42,8 +69,6 @@ export default function QuestionOption (props) {
 
 const styles = StyleSheet.create({
     answers: {
-      backgroundColor: '#a6dde4',
-      color: '#265e85',
       fontFamily: 'Roboto',
       fontSize: 20,
       textAlign: 'center',
@@ -51,14 +76,13 @@ const styles = StyleSheet.create({
       marginLeft: 20, 
       marginRight: 20,
       width: 300,
-      borderWidth: 1,
-      borderColor: '#a6dde4',
       borderRadius: 10,
     },
     answerText: {
-      color: '#265e85',
+      color: '#ece6dd',
       fontFamily: 'Roboto',
       fontSize: 24,
       textAlign: 'center',
+      margin: 20
     }
 });
