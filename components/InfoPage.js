@@ -14,11 +14,37 @@ export default function InfoPage({ route }) {
       return null;
     }
 
-    const {index} = route.params;
+    const {index, answer} = route.params;
+
+    const evalAnswer = (answer) => {
+      let rightAnswer = '';
+
+      if(answer == Questions.Fragen[index].Richtige_antwort) {
+        rightAnswer = Questions.Fragen[index].Antworttext;
+
+        return <React.Fragment>
+            <Text style={styles.titleText}>Richtige Antwort</Text>
+            <Text style={styles.titleText}>{rightAnswer}</Text>
+          </React.Fragment>;
+      } else {
+        return <React.Fragment>
+            <Text style={styles.titleText}>Falsche Antwort</Text>
+            <Text style={styles.titleText}>{rightAnswer}</Text>
+          </React.Fragment>;
+      }
+    }
+
+    if(answer == Questions.Richtige_antwort) {
+      rightAnswer = Questions.Antworttext;
+    }
+    console.log(answer);
 
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
+          <View style={styles.textContainer}>
+            {evalAnswer(answer)}
+          </View>
           <Text style={styles.titleText}>Weiterführende Informationen</Text>
           <View style={styles.textContainer}>
             <Text style={styles.text}>

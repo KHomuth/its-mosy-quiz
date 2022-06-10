@@ -61,7 +61,7 @@ export default function QuestionOption (props) {
     }
         
     return (
-          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]}>
+          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
             <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
           </TouchableOpacity>
     );

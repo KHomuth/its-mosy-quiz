@@ -39,7 +39,7 @@ export default function App() {
             headerShadowVisible: false,
             headerBackTitleVisible: false,
           }}
-          initialParams={{index: 0}}
+          initialParams={{index: 0, answer: ''}}
         />  
       </Stack.Navigator>
     </NavigationContainer>

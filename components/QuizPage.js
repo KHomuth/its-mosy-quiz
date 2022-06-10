@@ -38,6 +38,7 @@ export default function QuizPage({ route, navigation }) {
               btnNum={index}
               questionIndex={index+1}
               navigation={navigation}
+              onPress={() => navigation.push('Infos', {answer: item})}
             />
           ))}
         </View>
