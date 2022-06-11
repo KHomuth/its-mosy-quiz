@@ -29,8 +29,6 @@ export default function LandingPage({ navigation }) {
           navigation.push('Quiz', {
             index: data.question-1,
           });
-
-          console.log(data.question);
         } else if (data.phase == 2) {
           navigation.push('Infos', {
             index: data.question-1,

@@ -15,40 +15,33 @@ export default function InfoPage({ route }) {
     }
 
     const {index, answer} = route.params;
+    const rightAnswer = Questions.Fragen[index].Antworttext;
+
 
     const evalAnswer = (answer) => {
-      let rightAnswer = '';
-
       if(answer == Questions.Fragen[index].Richtige_antwort) {
-        rightAnswer = Questions.Fragen[index].Antworttext;
-
-        return <React.Fragment>
-            <Text style={styles.titleText}>Richtige Antwort</Text>
-            <Text style={styles.titleText}>{rightAnswer}</Text>
-          </React.Fragment>;
+        return (
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Richtige Antwort</Text>
+          </View>
+        );
       } else {
-        return <React.Fragment>
-            <Text style={styles.titleText}>Falsche Antwort</Text>
-            <Text style={styles.titleText}>{rightAnswer}</Text>
-          </React.Fragment>;
+        return (
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Falsche Antwort</Text>
+          </View>
+        );
       }
     }
-
-    if(answer == Questions.Richtige_antwort) {
-      rightAnswer = Questions.Antworttext;
-    }
-    console.log(answer);
 
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
+          {evalAnswer(answer)}
           <View style={styles.textContainer}>
-            {evalAnswer(answer)}
-          </View>
-          <Text style={styles.titleText}>Weiterführende Informationen</Text>
-          <View style={styles.textContainer}>
+            <Text style={styles.titleText}>Weitere Infos</Text>  
             <Text style={styles.text}>
-              {Questions.Fragen[index].Antworttext}
+              {rightAnswer}
             </Text>
           </View>
         </View>
