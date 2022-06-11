@@ -19,18 +19,20 @@ export default function InfoPage({ route }) {
 
 
     const evalAnswer = (answer) => {
-      if(answer == Questions.Fragen[index].Richtige_antwort) {
+      if(answer === Questions.Fragen[index].Richtige_antwort) {
         return (
           <View style={styles.textContainer}>
             <Text style={styles.text}>Richtige Antwort</Text>
           </View>
         );
+      } else if (answer === '') {
+        return;
       } else {
-        return (
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Falsche Antwort</Text>
-          </View>
-        );
+          return (
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Falsche Antwort</Text>
+            </View>
+          );
       }
     }
 
