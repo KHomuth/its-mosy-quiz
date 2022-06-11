@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, View } from "react-native";
 import QuestionOption from "./QuestionOption";
+import Timer from "./Timer";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
@@ -30,6 +31,7 @@ export default function QuizPage({ route, navigation }) {
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
+          <Timer/>
           <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
           {answerButtons.map((item, index) => (
             <QuestionOption
