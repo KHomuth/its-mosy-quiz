@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View,TouchableOpacity } from "react-native";
 import QuestionOption from "./QuestionOption";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
@@ -40,6 +40,11 @@ export default function QuizPage({ route, navigation }) {
               navigation={navigation}
             />
           ))}
+
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Score')}>
+            <Text style={styles.buttonText}>Beenden</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     );
