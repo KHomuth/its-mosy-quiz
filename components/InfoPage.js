@@ -3,7 +3,8 @@ import { Text, View } from "react-native";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
-import {score, setScore} from "../functions/_score";
+import { initialScore } from "../functions/_score";
+import setScore from "../functions/_score";
 
 export default function InfoPage({ route }) {
     const [loaded] = useFonts({
@@ -23,7 +24,7 @@ export default function InfoPage({ route }) {
       let answerState = "";
       if(answer === Questions.Fragen[index].Richtige_antwort) {
         answerState = 'right';
-        setScore(score, evalAnswer);
+        setScore(initialScore, answerState);
         return (
           <View style={styles.textContainer}>
             <Text style={styles.text}>Richtige Antwort</Text>
@@ -31,7 +32,7 @@ export default function InfoPage({ route }) {
         );
       } else {
         answerState = 'wrong';
-        console.log(answerState)  
+        setScore(initialScore, answerState);
         return (
             <View style={styles.textContainer}>
               <Text style={styles.text}>Falsche Antwort</Text>

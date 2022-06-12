@@ -1,20 +1,20 @@
-export const score = 0;
+export let initialScore = 0;
 
-export const setScore = (score, evalAnswer) => {
+export default function setScore(score, evalAnswer) {
     
     if(evalAnswer === 'right'){
-        score += 1;
-        return score;
-        console.log('Blabla')
+        initialScore = score + 1;
+        console.log(initialScore);
+        return initialScore;
+    } else if(evalAnswer === 'wrong'){
+        console.log(initialScore);
+        return initialScore;
+    } else {
+        return initialScore;
     }
-    else if(evalAnswer === 'wrong'){
-        score += 0;
-        return score;
-        console.log('Blub')
-    }
-}
+};
 
-export const resetScore = (score) =>{
-    score = 0;
-    return score;
+export const resetScore = () =>{
+    initialScore = 0;
+    return initialScore;
 }
