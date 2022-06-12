@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
+import {score, setScore} from "../functions/_score";
 
 export default function InfoPage({ route }) {
     const [loaded] = useFonts({
@@ -19,16 +20,19 @@ export default function InfoPage({ route }) {
 
 
     const evalAnswer = (answer) => {
+      let answerState = "";
       if(answer === Questions.Fragen[index].Richtige_antwort) {
+        answerState = 'right';
+        setScore(score, evalAnswer);
         return (
           <View style={styles.textContainer}>
             <Text style={styles.text}>Richtige Antwort</Text>
           </View>
         );
-      } else if (answer === '') {
-        return;
       } else {
-          return (
+        answerState = 'wrong';
+        console.log(answerState)  
+        return (
             <View style={styles.textContainer}>
               <Text style={styles.text}>Falsche Antwort</Text>
             </View>

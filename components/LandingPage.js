@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
-
+import { score } from "../functions/_score";
 
 export default function LandingPage({ navigation }) {
     

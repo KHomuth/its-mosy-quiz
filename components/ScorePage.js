@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
+import { score } from "../functions/_score";
 
 export default function ScorePage({ route }) {
     const [loaded] = useFonts({
@@ -12,6 +13,7 @@ export default function ScorePage({ route }) {
     if (!loaded) {
       return null;
     }
+
 
     return (
       <View style={styles.containerBackground}>
