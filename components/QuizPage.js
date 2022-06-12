@@ -31,14 +31,14 @@ export default function QuizPage({ route, navigation }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
-          {answerButtons.map((item, index) => (
+          {answerButtons.map((item, itemIndex) => (
             <QuestionOption
-              key={index}
+              key={itemIndex}
               value={item}
-              btnNum={index}
-              questionIndex={index+1}
+              btnNum={itemIndex}
+              questionIndex={itemIndex+1}
               navigation={navigation}
-              onPress={() => navigation.push('Infos', {answer: item})}
+              onPress={() => navigation.push('Infos', {index: (index), answer: item})}
             />
           ))}
         </View>
