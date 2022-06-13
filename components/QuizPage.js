@@ -23,6 +23,41 @@ export default function QuizPage({ route, navigation }) {
       }
     }
 
+    const [buttonAEnabled, setButtonAEnabled] = useState(true);
+    const [buttonBEnabled, setButtonBEnabled] = useState(true);
+    const [buttonCEnabled, setButtonCEnabled] = useState(true);
+    const [buttonDEnabled, setButtonDEnabled] = useState(true);
+
+
+    const selecting = (value) => {
+      if (value=='a') {
+        setButtonAEnabled(true);
+        setButtonBEnabled(false);
+        setButtonCEnabled(false);
+        setButtonDEnabled(false);
+      } 
+      else if (value=='b') {
+        setButtonAEnabled(false);
+        setButtonBEnabled(true);
+        setButtonCEnabled(false);
+        setButtonDEnabled(false);
+      }
+      else if (value=='c') {
+        setButtonAEnabled(false);
+        setButtonBEnabled(false);
+        setButtonCEnabled(true);
+        setButtonDEnabled(false);
+      }
+      else if (value=='d') {
+        setButtonAEnabled(false);
+        setButtonBEnabled(false);
+        setButtonCEnabled(false);
+        setButtonDEnabled(true);
+      };
+    }
+
+         
+
     let answerButtons = [];
 
     pushToArray(answerButtons);
@@ -38,10 +73,30 @@ export default function QuizPage({ route, navigation }) {
               btnNum={itemIndex}
               questionIndex={itemIndex+1}
               navigation={navigation}
-              onPress={() => navigation.push('Infos', {index: (index), answer: item})}
-            />
+              selected={    
+                // else if buttonXEnabled
+                value =='a'? "ButtonAEnabled"  
+                : value=='b'? "ButtonBEnabled"
+                : value=='c'? "ButtonCEnabled"
+                : "ButtonDEnabled"
+              }                
+              onPress={() => selecting(item)} 
+            />  //Notlösung: aus QuestionOption alle props für 4 einzelne Buttons hier anlegen/Übernehmen
           ))}
         </View>
       </View>
     );
 }
+
+           /*   if (value=='a') {
+                ButtonAEnabled:true
+              } 
+              else if (value=='b') {
+                ButtonBEnabled
+              }
+              else if (value=='c') {
+                ButtonCEnabled
+              }
+              else if (value=='d') {
+                ButtonDEnabled
+              };*/

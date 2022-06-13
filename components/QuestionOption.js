@@ -33,7 +33,13 @@ export default function QuestionOption (props) {
       });
     }
 
-    const addBtnStyle = (number) => {
+    const addBtnStyle = (number) => { 
+         
+      if(selected == false) {
+        //graublau
+        return {backgroundColor: '#DAE3F3'}
+      }
+      else {
       if(number == 0) {
         return {
           //grün
@@ -59,9 +65,10 @@ export default function QuestionOption (props) {
         }
       }
     }
+    }
         
     return (
-          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
+          <TouchableOpacity disabled={props.selected} style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
             <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
           </TouchableOpacity>
     );
