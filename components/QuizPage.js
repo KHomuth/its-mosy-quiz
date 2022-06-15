@@ -23,10 +23,10 @@ export default function QuizPage({ route, navigation }) {
       }
     }
 
-    const [buttonAEnabled, setButtonAEnabled] = useState(true);
-    const [buttonBEnabled, setButtonBEnabled] = useState(true);
-    const [buttonCEnabled, setButtonCEnabled] = useState(true);
-    const [buttonDEnabled, setButtonDEnabled] = useState(true);
+    const [buttonAEnabled, setButtonAEnabled] = React.useState(true);
+    const [buttonBEnabled, setButtonBEnabled] = React.useState(true);
+    const [buttonCEnabled, setButtonCEnabled] = React.useState(true);
+    const [buttonDEnabled, setButtonDEnabled] = React.useState(true);
 
 
     const selecting = (value) => {
@@ -73,19 +73,14 @@ export default function QuizPage({ route, navigation }) {
               btnNum={itemIndex}
               questionIndex={itemIndex+1}
               navigation={navigation}
-              selected={    
+              selected={                
                 // else if buttonXEnabled
                 item =='a'? buttonAEnabled  
                 : item=='b'? buttonBEnabled
                 : item=='c'? buttonCEnabled
-                : buttonDEnabled
+                : buttonDEnabled       
               }                
-
-              /*
-              onPress={() => navigation.push('Infos', {index: (index), answer: item})}
-            />
-              */
-              onPress={() => navigation.push('Infos', {index: (index), answer: item})} 
+              onPress={() => {navigation.push('Infos', {index: (index), answer: item}); selecting(item)}} 
             />  //Notlösung: aus QuestionOption alle props für 4 einzelne Buttons hier anlegen/Übernehmen
           ))}
         </View>
