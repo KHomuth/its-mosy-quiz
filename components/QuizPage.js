@@ -75,10 +75,10 @@ export default function QuizPage({ route, navigation }) {
               navigation={navigation}
               selected={    
                 // else if buttonXEnabled
-                value =='a'? "ButtonAEnabled"  
-                : value=='b'? "ButtonBEnabled"
-                : value=='c'? "ButtonCEnabled"
-                : "ButtonDEnabled"
+                item =='a'? buttonAEnabled  
+                : item=='b'? buttonBEnabled
+                : item=='c'? buttonCEnabled
+                : buttonDEnabled
               }                
               onPress={() => selecting(item)} 
             />  //Notlösung: aus QuestionOption alle props für 4 einzelne Buttons hier anlegen/Übernehmen
