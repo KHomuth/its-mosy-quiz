@@ -80,7 +80,12 @@ export default function QuizPage({ route, navigation }) {
                 : item=='c'? buttonCEnabled
                 : buttonDEnabled
               }                
-              onPress={() => selecting(item)} 
+
+              /*
+              onPress={() => navigation.push('Infos', {index: (index), answer: item})}
+            />
+              */
+              onPress={() => navigation.push('Infos', {index: (index), answer: item})} 
             />  //Notlösung: aus QuestionOption alle props für 4 einzelne Buttons hier anlegen/Übernehmen
           ))}
         </View>
