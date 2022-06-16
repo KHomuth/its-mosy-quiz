@@ -63,7 +63,7 @@ export default function QuizPage({ route, navigation }) {
       "answer": answer  
     };
 
-    fetch('https://04cf-2a02-3030-802-d077-21ba-d6a-cdfa-ec09.eu.ngrok.io/api/v1.0/answers', {
+    fetch('https://02a4-46-114-171-211.eu.ngrok.io/api/v1.0/answers', {
       method: 'POST',
       mode: 'cors',
       headers: {
