@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LandingPage from './components/LandingPage';
 import QuizPage from './components/QuizPage';
 import InfoPage from './components/InfoPage';
+import TextPage from './components/InfoPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,18 @@ export default function App() {
           }}
           initialParams={{index: 0, answer: ''}}
         />  
+        <Stack.Screen
+          name='Text'
+          component={TextPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

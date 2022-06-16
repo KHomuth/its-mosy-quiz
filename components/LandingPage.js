@@ -48,7 +48,7 @@ export default function LandingPage({ navigation }) {
           <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Text')}>
             <Text style={styles.buttonText}>Mehr Infos?</Text>
           </TouchableOpacity>
         </View>
