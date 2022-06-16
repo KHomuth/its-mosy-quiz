@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
-import { score } from "../functions/_score";
+import { initialScore, resetScore } from "../functions/_score";
 
-export default function ScorePage({ route }) {
+export default function ScorePage({ navigation }) {
     const [loaded] = useFonts({
       Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
       ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
@@ -21,9 +21,12 @@ export default function ScorePage({ route }) {
           <Text style={styles.titleText}>HIGHSCORE</Text>
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              test
+              Richtige Antworten: {"\n"} {"\n"} {initialScore}
             </Text>
           </View>
+          <TouchableOpacity style={styles.button} /*onPress={() => getTdData()}>*/ onPress={() =>  navigation.navigate('Home') & resetScore(initialScore)}>
+            <Text style={styles.buttonText}>Home</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

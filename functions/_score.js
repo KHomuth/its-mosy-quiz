@@ -14,7 +14,7 @@ export default function setScore(score, evalAnswer) {
     }
 };
 
-export const resetScore = () =>{
+export function resetScore() {
     initialScore = 0;
     return initialScore;
 }
