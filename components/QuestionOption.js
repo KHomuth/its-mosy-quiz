@@ -12,13 +12,18 @@ export default function QuestionOption (props) {
       return null;
     }
 
-    const addBtnStyle = (number) => {
-      if(number == 0) {
+  const addBtnStyle = (number) => {
+    if (props.selected == true) {
+      //graublau
+      return { backgroundColor: '#DAE3F3' }
+    }
+    else {
+      if (number == 0) {
         return {
           //grün
           backgroundColor: '#226822'
         }
-      } 
+      }
       else if (number == 1) {
         return {
           //rot
@@ -38,30 +43,31 @@ export default function QuestionOption (props) {
         }
       }
     }
-        
-    return (
-          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
-            <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
-          </TouchableOpacity>
-    );
+  }
+
+  return (
+    <TouchableOpacity disabled={props.selected} style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
+      <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    answers: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      textAlign: 'center',
-      marginBottom: 20,
-      marginLeft: 20, 
-      marginRight: 20,
-      width: 300,
-      borderRadius: 10,
-    },
-    answerText: {
-      color: '#ece6dd',
-      fontFamily: 'Roboto',
-      fontSize: 24,
-      textAlign: 'center',
-      margin: 20
-    }
+  answers: {
+    fontFamily: 'Roboto',
+    fontSize: 20,
+    textAlign: 'center',
+    marginBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    width: 300,
+    borderRadius: 10,
+  },
+  answerText: {
+    color: '#ece6dd',
+    fontFamily: 'Roboto',
+    fontSize: 24,
+    textAlign: 'center',
+    margin: 20
+  }
 });
