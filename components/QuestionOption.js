@@ -34,7 +34,6 @@ export default function QuestionOption(props) {
   }
 
   const addBtnStyle = (number) => {
-    console.log('button' + props.btnNum + ' is ' + props.selected)
     if (props.selected == true) {
       //graublau
       return { backgroundColor: '#DAE3F3' }
