@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
-
+import { score } from "../functions/_score";
 
 export default function LandingPage({ navigation }) {
     
@@ -48,7 +48,7 @@ export default function LandingPage({ navigation }) {
           <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
+          <TouchableOpacity style={styles.button} /*onPress={() => getTdData()}>*/ onPress={() => navigation.navigate('Infos')}>
             <Text style={styles.buttonText}>Mehr Infos?</Text>
           </TouchableOpacity>
         </View>
