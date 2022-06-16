@@ -3,7 +3,6 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
 
-
 export default function LandingPage({ navigation }) {
     
     const [loaded] = useFonts({
@@ -18,7 +17,7 @@ export default function LandingPage({ navigation }) {
     //Make API Call to get question, phase and time
     async function getTdData() {
       try {
-        const response = await fetch('http://127.0.0.1:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
+        const response = await fetch('https://02a4-46-114-171-211.eu.ngrok.io/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
@@ -29,8 +28,6 @@ export default function LandingPage({ navigation }) {
           navigation.push('Quiz', {
             index: data.question-1,
           });
-
-          console.log(data.question);
         } else if (data.phase == 2) {
           navigation.push('Infos', {
             index: data.question-1,
@@ -46,11 +43,11 @@ export default function LandingPage({ navigation }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           <Text style={styles.titleText}>Life Below Water</Text>
-          <Text style={[styles.text, styles.textCenter]}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
+          <Text style={[styles.text, styles.textCenter]}>Herzlich Willkommen bei unserem Quiz. Hier kannst du dein Wissen rund um das Thema Ozeane testen und spannende Fakten erfahren.</Text>
           <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Infos')}>
             <Text style={styles.buttonText}>Mehr Infos?</Text>
           </TouchableOpacity>
         </View>

@@ -11,35 +11,19 @@ export default function QuestionOption (props) {
     if (!loaded) {
       return null;
     }
-    const sendTdData = (question, answer) => {
-      const data = { 
-        question: question,
-        answer: answer  
-      };
 
-      fetch('http://127.0.0.1:9980/api/v1.0/answers', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+  const addBtnStyle = (number) => {
+    if (props.selected == true) {
+      //graublau
+      return { backgroundColor: '#DAE3F3' }
     }
-
-    const addBtnStyle = (number) => {
-      if(number == 0) {
+    else {
+      if (number == 0) {
         return {
           //grün
           backgroundColor: '#226822'
         }
-      } 
+      }
       else if (number == 1) {
         return {
           //rot
@@ -59,30 +43,31 @@ export default function QuestionOption (props) {
         }
       }
     }
-        
-    return (
-          <TouchableOpacity style={[styles.answers, addBtnStyle(props.btnNum)]}>
-            <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
-          </TouchableOpacity>
-    );
+  }
+
+  return (
+    <TouchableOpacity disabled={props.selected} style={[styles.answers, addBtnStyle(props.btnNum)]} onPress={props.onPress}>
+      <Text style={styles.answerText}>{props.value.toUpperCase()}</Text>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    answers: {
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      textAlign: 'center',
-      marginBottom: 20,
-      marginLeft: 20, 
-      marginRight: 20,
-      width: 300,
-      borderRadius: 10,
-    },
-    answerText: {
-      color: '#ece6dd',
-      fontFamily: 'Roboto',
-      fontSize: 24,
-      textAlign: 'center',
-      margin: 20
-    }
+  answers: {
+    fontFamily: 'Roboto',
+    fontSize: 20,
+    textAlign: 'center',
+    marginBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    width: 300,
+    borderRadius: 10,
+  },
+  answerText: {
+    color: '#ece6dd',
+    fontFamily: 'Roboto',
+    fontSize: 24,
+    textAlign: 'center',
+    margin: 20
+  }
 });

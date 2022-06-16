@@ -43,7 +43,16 @@ const styles = StyleSheet.create({
         color: '#ece6dd',
         margin: 20,
         textAlign: 'center'
-      }
+      },
+      buttonBeenden: {
+        backgroundColor: '#7F7F7F',
+        marginTop: 40,
+        marginBottom: 20,
+        marginLeft: 20, 
+        marginRight: 20,
+        width: 300,
+        borderRadius: 10,
+      },
 })
 
 export default styles;
