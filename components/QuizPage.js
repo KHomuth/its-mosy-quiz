@@ -6,97 +6,78 @@ import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
 
 export default function QuizPage({ route, navigation }) {
-    const [loaded] = useFonts({
-      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
-      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
-    });
-      
-    if (!loaded) {
-      return null;
+  const { index } = route.params;
+  const [buttonAEnabled, setButtonAEnabled] = React.useState(false);
+  const [buttonBEnabled, setButtonBEnabled] = React.useState(false);
+  const [buttonCEnabled, setButtonCEnabled] = React.useState(false);
+  const [buttonDEnabled, setButtonDEnabled] = React.useState(false);
+
+  const selecting = (value) => {
+    if (value == 'a') {
+      setButtonAEnabled(false);
+      setButtonBEnabled(true);
+      setButtonCEnabled(true);
+      setButtonDEnabled(true);
     }
-
-    const {index} = route.params;
-
-    const pushToArray = (myArray) => {
-      for(const [key, value] of Object.entries(Questions.Fragen[index].Antworten)) {
-        myArray.push(key);
-      }
+    else if (value == 'b') {
+      setButtonAEnabled(true);
+      setButtonBEnabled(false);
+      setButtonCEnabled(true);
+      setButtonDEnabled(true);
     }
-
-    const [buttonAEnabled, setButtonAEnabled] = React.useState(true);
-    const [buttonBEnabled, setButtonBEnabled] = React.useState(true);
-    const [buttonCEnabled, setButtonCEnabled] = React.useState(true);
-    const [buttonDEnabled, setButtonDEnabled] = React.useState(true);
-
-
-    const selecting = (value) => {
-      if (value=='a') {
-        setButtonAEnabled(true);
-        setButtonBEnabled(false);
-        setButtonCEnabled(false);
-        setButtonDEnabled(false);
-      } 
-      else if (value=='b') {
-        setButtonAEnabled(false);
-        setButtonBEnabled(true);
-        setButtonCEnabled(false);
-        setButtonDEnabled(false);
-      }
-      else if (value=='c') {
-        setButtonAEnabled(false);
-        setButtonBEnabled(false);
-        setButtonCEnabled(true);
-        setButtonDEnabled(false);
-      }
-      else if (value=='d') {
-        setButtonAEnabled(false);
-        setButtonBEnabled(false);
-        setButtonCEnabled(false);
-        setButtonDEnabled(true);
-      };
+    else if (value == 'c') {
+      setButtonAEnabled(true);
+      setButtonBEnabled(true);
+      setButtonCEnabled(false);
+      setButtonDEnabled(true);
     }
+    else if (value == 'd') {
+      setButtonAEnabled(true);
+      setButtonBEnabled(true);
+      setButtonCEnabled(true);
+      setButtonDEnabled(false);
+    };
+  }
+  const [loaded] = useFonts({
+    Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
+    ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+  });
 
-         
+  if (!loaded) {
+    return null;
+  }
 
-    let answerButtons = [];
+  const pushToArray = (myArray) => {
+    for (const [key, value] of Object.entries(Questions.Fragen[index].Antworten)) {
+      myArray.push(key);
+    }
+  }
 
-    pushToArray(answerButtons);
+  let answerButtons = [];
 
-    return (
-      <View style={styles.containerBackground}>
-        <View style={styles.container}>
-          <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
-          {answerButtons.map((item, itemIndex) => (
-            <QuestionOption
-              key={itemIndex}
-              value={item}
-              btnNum={itemIndex}
-              questionIndex={itemIndex+1}
-              navigation={navigation}
-              selected={                
-                // else if buttonXEnabled
-                item =='a'? buttonAEnabled  
-                : item=='b'? buttonBEnabled
-                : item=='c'? buttonCEnabled
-                : buttonDEnabled       
-              }                
-              onPress={() => {navigation.push('Infos', {index: (index), answer: item}); selecting(item)}} 
-            />  //Notlösung: aus QuestionOption alle props für 4 einzelne Buttons hier anlegen/Übernehmen
-          ))}
-        </View>
+  pushToArray(answerButtons);
+
+  return (
+    <View style={styles.containerBackground}>
+      <View style={styles.container}>
+        <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
+        {answerButtons.map((item, itemIndex) => (
+          <QuestionOption
+            key={itemIndex}
+            value={item}
+            btnNum={itemIndex}
+            questionIndex={itemIndex + 1}
+            navigation={navigation}
+            selected={
+              item == 'a' ? buttonAEnabled
+                : item == 'b' ? buttonBEnabled
+                  : item == 'c' ? buttonCEnabled
+                    : buttonDEnabled
+            }
+            onPress={() => selecting(item)}
+          />  //navigation.push('Infos', {index: (index), answer: item})
+        ))}
       </View>
-    );
+    </View>
+  );
 }
-
-           /*   if (value=='a') {
-                ButtonAEnabled:true
-              } 
-              else if (value=='b') {
-                ButtonBEnabled
-              }
-              else if (value=='c') {
-                ButtonCEnabled
-              }
-              else if (value=='d') {
-                ButtonDEnabled
-              };*/
