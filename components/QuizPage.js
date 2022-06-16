@@ -42,7 +42,7 @@ export default function QuizPage({ route, navigation }) {
             />
           ))}
 
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Score')}>
+          <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
             <Text style={styles.buttonText}>Beenden</Text>
           </TouchableOpacity>
 

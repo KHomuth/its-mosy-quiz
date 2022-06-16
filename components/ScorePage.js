@@ -24,7 +24,7 @@ export default function ScorePage({ navigation }) {
               Richtige Antworten: {"\n"} {"\n"} {initialScore}
             </Text>
           </View>
-          <TouchableOpacity style={styles.button} /*onPress={() => getTdData()}>*/ onPress={() =>  navigation.navigate('Home') & resetScore(initialScore)}>
+          <TouchableOpacity style={styles.buttonBeenden} /*onPress={() => getTdData()}>*/ onPress={() =>  navigation.navigate('Home') & resetScore(initialScore)}>
             <Text style={styles.buttonText}>Home</Text>
           </TouchableOpacity>
         </View>

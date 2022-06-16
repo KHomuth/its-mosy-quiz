@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
 import { initialScore } from "../functions/_score";
 import setScore from "../functions/_score";
 
-export default function InfoPage({ route }) {
+export default function InfoPage({ navigation, route }) {
     const [loaded] = useFonts({
       Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
       ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
@@ -50,6 +50,9 @@ export default function InfoPage({ route }) {
             <Text style={styles.text}>
               {rightAnswer}
             </Text>
+            <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
+            <Text style={styles.buttonText}>Beenden</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
