@@ -44,8 +44,8 @@ export default function LandingPage({ navigation }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           <Text style={styles.titleText}>Life Below Water</Text>
-          <Text style={[styles.text, styles.textCenter]}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. </Text>
-          <TouchableOpacity style={styles.button} /*onPress={() => getTdData()}>*/ onPress={() => navigation.navigate('Quiz')}>
+          <Text style={[styles.text, styles.textCenter]}>Herzlich Willkommen bei unserem Quiz. Hier kannst du dein Wissen rund um das Thema Ozeane testen und spannende Fakten erfahren.</Text>
+          <TouchableOpacity style={styles.button} onPress={() => getTdData()}>
             <Text style={styles.buttonText}>Quiz starten!</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} /*onPress={() => getTdData()}>*/ onPress={() => navigation.navigate('Infos')}>

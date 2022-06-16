@@ -27,7 +27,7 @@ export default function InfoPage({ navigation, route }) {
         setScore(initialScore, answerState);
         return (
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Richtige Antwort</Text>
+            <Text style={styles.titleText}>Richtige Antwort</Text>
           </View>
         );
       } else {
@@ -35,7 +35,7 @@ export default function InfoPage({ navigation, route }) {
         setScore(initialScore, answerState);
         return (
             <View style={styles.textContainer}>
-              <Text style={styles.text}>Falsche Antwort</Text>
+              <Text style={styles.titleText}>Falsche Antwort</Text>
             </View>
           );
       }
@@ -45,8 +45,7 @@ export default function InfoPage({ navigation, route }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           {evalAnswer(answer)}
-          <View style={styles.textContainer}>
-            <Text style={styles.titleText}>Weitere Infos</Text>  
+          <View style={styles.textContainer}> 
             <Text style={styles.text}>
               {rightAnswer}
             </Text>
