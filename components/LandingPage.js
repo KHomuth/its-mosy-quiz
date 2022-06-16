@@ -18,7 +18,7 @@ export default function LandingPage({ navigation }) {
     //Make API Call to get question, phase and time
     async function getTdData() {
       try {
-        const response = await fetch('http://127.0.0.1:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
+        const response = await fetch('https://04cf-2a02-3030-802-d077-21ba-d6a-cdfa-ec09.eu.ngrok.io/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }

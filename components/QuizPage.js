@@ -26,6 +26,26 @@ export default function QuizPage({ route, navigation }) {
     let answerButtons = [];
 
     pushToArray(answerButtons);
+    
+    const sendTdData = (question, answer) => {
+      const data = { 
+        "question": question,
+        "answer": answer  
+      };
+
+      fetch('https://04cf-2a02-3030-802-d077-21ba-d6a-cdfa-ec09.eu.ngrok.io/api/v1.0/answers', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .catch((error) => {
+        console.error('Error', error);
+      });
+    }
 
     return (
       <View style={styles.containerBackground}>
@@ -38,7 +58,7 @@ export default function QuizPage({ route, navigation }) {
               btnNum={itemIndex}
               questionIndex={itemIndex+1}
               navigation={navigation}
-              onPress={() => navigation.push('Infos', {index: (index), answer: item})}
+              onPress={() => {navigation.push('Infos', {index: (index), answer: item}); sendTdData(index, item);}}
             />
           ))}
         </View>
