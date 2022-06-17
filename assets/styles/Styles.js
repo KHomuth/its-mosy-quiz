@@ -21,13 +21,15 @@ const styles = StyleSheet.create({
         fontFamily: 'ZenLoop',
         fontSize: 60,
         color: '#00517A',
-        marginLeft: 20, 
+        marginLeft: 30, 
       },
       text: {
         fontFamily: 'Roboto',
         fontSize: 20,
         color: '#00517A',
         margin: 20,
+        marginLeft: 30, 
+        marginRight: 30,
       },
       button: {
         backgroundColor: '#00517A',
