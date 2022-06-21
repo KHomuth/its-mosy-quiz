@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         margin: 20,
         marginLeft: 30, 
         marginRight: 30,
+        textAlign: 'center'
       },
       button: {
         backgroundColor: '#00517A',
@@ -43,6 +44,14 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         fontSize: 20,
         color: '#ece6dd',
+        margin: 20,
+        textAlign: 'center'
+      },
+      modalText: {
+        fontFamily: 'Roboto',
+        fontSize: 20,
+        fontWeight: 800,
+        color: '#00517A',
         margin: 20,
         textAlign: 'center'
       }
