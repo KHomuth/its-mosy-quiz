@@ -1,0 +1,23 @@
+{
+  "files": {
+    "app.js": "/lbw-quiz/static/js/app.37fe8b54.chunk.js",
+    "app.js.map": "/lbw-quiz/static/js/app.37fe8b54.chunk.js.map",
+    "runtime~app.js": "/lbw-quiz/static/js/runtime~app.47fb5915.js",
+    "runtime~app.js.map": "/lbw-quiz/static/js/runtime~app.47fb5915.js.map",
+    "static/js/2.3dee5d28.chunk.js": "/lbw-quiz/static/js/2.3dee5d28.chunk.js",
+    "static/js/2.3dee5d28.chunk.js.map": "/lbw-quiz/static/js/2.3dee5d28.chunk.js.map",
+    "fonts/Roboto-Regular.ttf": "/lbw-quiz/./fonts/Roboto-Regular.ttf",
+    "favicon-16.png": "/lbw-quiz/favicon-16.png",
+    "favicon-32.png": "/lbw-quiz/favicon-32.png",
+    "favicon.ico": "/lbw-quiz/favicon.ico",
+    "index.html": "/lbw-quiz/index.html",
+    "manifest.json": "/lbw-quiz/manifest.json",
+    "serve.json": "/lbw-quiz/serve.json",
+    "static/js/2.3dee5d28.chunk.js.LICENSE.txt": "/lbw-quiz/static/js/2.3dee5d28.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.47fb5915.js",
+    "static/js/2.3dee5d28.chunk.js",
+    "static/js/app.37fe8b54.chunk.js"
+  ]
+}
