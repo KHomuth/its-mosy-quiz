@@ -2,36 +2,15 @@ import * as React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 
-export default function QuestionOption(props) {
-  const [loaded] = useFonts({
-    Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
-    ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-  const sendTdData = (question, answer) => {
-    const data = {
-      question: question,
-      answer: answer
-    };
-
-    fetch('http://127.0.0.1:9980/api/v1.0/answers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
+export default function QuestionOption (props) {
+    const [loaded] = useFonts({
+      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
+      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
+    });
+      
+    if (!loaded) {
+      return null;
+    }
 
   const addBtnStyle = (number) => {
     if (props.selected == true) {
