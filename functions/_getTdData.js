@@ -2,7 +2,7 @@ import * as RootNavigation from '../components/RootNavigation';
 
 export default async function getTdData(selectedAnswer) {
     try {
-      const response = await fetch('http://192.168.2.103:9980/api/v1.0/question_and_phase');
+      const response = await fetch('http://127.0.0.1:9980/api/v1.0/question_and_phase');
       if (!response.ok) {
         throw new Error(`HTTP error: ${response.status}`);
       }
