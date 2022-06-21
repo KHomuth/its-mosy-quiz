@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
+import getTdData from "../functions/_getTdData";
 
 export default function LandingPage({ navigation }) {
     
@@ -13,31 +14,6 @@ export default function LandingPage({ navigation }) {
     if (!loaded) {
       return null;
     }
-
-    //Make API Call to get question, phase and time
-    async function getTdData() {
-      try {
-        const response = await fetch('https://02a4-46-114-171-211.eu.ngrok.io/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
-        
-        const data = await response.json();
-
-        if (data.phase == 1) {
-          navigation.push('Quiz', {
-            index: data.question-1,
-          });
-        } else if (data.phase == 2) {
-          navigation.push('Infos', {
-            index: data.question-1,
-          });
-        }
-      }
-      catch(error) {
-        console.error(`Could not get Data: ${error}`);
-      }
-    }    
 
     return (
       <View style={styles.containerBackground}>

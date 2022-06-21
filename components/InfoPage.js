@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
 import { initialScore } from "../functions/_score";
 import setScore from "../functions/_score";
+import Timer from "./Timer";
 
 export default function InfoPage({ navigation, route }) {
     const [loaded] = useFonts({
@@ -16,7 +17,7 @@ export default function InfoPage({ navigation, route }) {
       return null;
     }
 
-    const {index, answer} = route.params;
+    const {index, answer, timerCreation, timerCount} = route.params;
     const rightAnswer = Questions.Fragen[index].Antworttext;
 
 
@@ -45,6 +46,10 @@ export default function InfoPage({ navigation, route }) {
       <View style={styles.containerBackground}>
         <View style={styles.container}>
           {evalAnswer(answer)}
+          <Timer
+          timeLeft={timerCount}
+          timeCreated={timerCreation}
+        />
           <View style={styles.textContainer}> 
             <Text style={styles.text}>
               {rightAnswer}

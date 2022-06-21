@@ -7,7 +7,8 @@ import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
 
 export default function QuizPage({ route, navigation }) {
-  const { index } = route.params;
+  const { index, timerCreation, timerCount } = route.params;
+
   const [buttonAEnabled, setButtonAEnabled] = React.useState(false);
   const [buttonBEnabled, setButtonBEnabled] = React.useState(false);
   const [buttonCEnabled, setButtonCEnabled] = React.useState(false);
@@ -81,6 +82,10 @@ export default function QuizPage({ route, navigation }) {
   return (
     <View style={styles.containerBackground}>
       <View style={styles.container}>
+        <Timer
+          timeLeft={timerCount}
+          timeCreated={timerCreation}
+        />
         <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
         {answerButtons.map((item, itemIndex) => (
           <QuestionOption

@@ -4,12 +4,13 @@ import LandingPage from './components/LandingPage';
 import QuizPage from './components/QuizPage';
 import InfoPage from './components/InfoPage';
 import ScorePage from './components/ScorePage';
+import { navigationRef } from './components/RootNavigation';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
           name='Home'
@@ -20,7 +21,7 @@ export default function App() {
           name='Quiz'
           component={QuizPage}
           options={{headerShown: false}}
-          initialParams={{index: 0}}
+          initialParams={{index: 0, timerCreation: 0, timerCount: 0}}
         />
         <Stack.Screen
           name='Infos'
@@ -33,7 +34,7 @@ export default function App() {
             headerShadowVisible: false,
             headerBackTitleVisible: false,
           }}
-          initialParams={{index: 0, answer: ''}}
+          initialParams={{index: 0, answer: '', timerCreation: 0, timerCount: 0}}
         />  
         <Stack.Screen
           name='Score'
