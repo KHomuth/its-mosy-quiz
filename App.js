@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LandingPage from './components/LandingPage';
 import QuizPage from './components/QuizPage';
 import InfoPage from './components/InfoPage';
+import TextPage from './components/TextPage';
 import ScorePage from './components/ScorePage';
 import { navigationRef } from './components/RootNavigation';
 
@@ -33,7 +34,19 @@ export default function App() {
           name='Score'
           component={ScorePage}
           options={{headerShown: false}}
-        /> 
+        />
+        <Stack.Screen
+          name='Text'
+          component={TextPage}
+          options={{
+            headerStyle: {
+              backgroundColor: '#F2F2F2'
+            },
+            headerTintColor: '#00517A',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
