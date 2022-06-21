@@ -8,6 +8,13 @@ import setScore from "../functions/_score";
 import Timer from "./Timer";
 
 export default function InfoPage({ navigation, route }) {
+
+    const [timerInterrupt, setTimerInterrupt] = React.useState(false);
+  
+    const interruptButton = () => {
+      setTimerInterrupt(true);
+    }
+
     const [loaded] = useFonts({
       Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
       ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
@@ -58,6 +65,7 @@ export default function InfoPage({ navigation, route }) {
               selectedAnswer={''}
               qPhase={phase}
               qIndex={index+1}
+              interrupt={timerInterrupt}
             />
           </View>
           {evalAnswer(answer)}
@@ -66,7 +74,7 @@ export default function InfoPage({ navigation, route }) {
               {rightAnswer}
             </Text>
           </View>
-          <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
+          <TouchableOpacity style={styles.buttonBeenden} onPress={() => {navigation.navigate('Score'); interruptButton();}}>
             <Text style={styles.buttonText}>Beenden</Text>
           </TouchableOpacity>
         </View>

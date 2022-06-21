@@ -28,9 +28,12 @@ export default function Timer ( props ) {
             if (props.qPhase == 2 && props.qIndex == 5) {
                 RootNavigation.navigate('Score');
                 return;
+            } else if (props.interrupt == true) {
+                return;
+            } else {
+                getTdData(props.selectedAnswer);
+                return;
             }
-            getTdData(props.selectedAnswer);
-            return;
         }
         const interval = setInterval(() => {
             setCount(count - 1000);

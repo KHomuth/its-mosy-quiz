@@ -16,6 +16,7 @@ export default function QuizPage({ route, navigation }) {
   const [buttonCEnabled, setButtonCEnabled] = React.useState(initialBtnState);
   const [buttonDEnabled, setButtonDEnabled] = React.useState(initialBtnState);
   const [answerSelectet, setAnswerSelected] = React.useState('');
+  const [timerInterrupt, setTimerInterrupt] = React.useState(false);
 
   const selecting = (value) => {
     if (value == 'a') {
@@ -43,6 +44,11 @@ export default function QuizPage({ route, navigation }) {
       setAnswerSelected('d');
     };
   }
+
+  const interruptButton = () => {
+    setTimerInterrupt(true);
+  }
+
   const [loaded] = useFonts({
     Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
     ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
@@ -70,6 +76,7 @@ export default function QuizPage({ route, navigation }) {
           selectedAnswer={answerSelectet}
           qPhase={phase}
           qIndex={index+1}
+          interrupt={timerInterrupt}
         />
         <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
         {answerButtons.map((item, itemIndex) => (
@@ -88,7 +95,7 @@ export default function QuizPage({ route, navigation }) {
             onPress={() => {selecting(item); sendTdData(index, item); increasePlayed();}}
           />
         ))}
-         <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
+         <TouchableOpacity style={styles.buttonBeenden} onPress={() => {navigation.navigate('Score'); interruptButton();}}>
             <Text style={styles.buttonText}>Beenden</Text>
           </TouchableOpacity>
       </View>
