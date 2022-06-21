@@ -21,20 +21,13 @@ export default function App() {
           name='Quiz'
           component={QuizPage}
           options={{headerShown: false}}
-          initialParams={{index: 0, timerCreation: 0, timerCount: 0}}
+          initialParams={{index: 0, timerCount: 0, initialBtnState: false, phase: 0}}
         />
         <Stack.Screen
           name='Infos'
           component={InfoPage}
-          options={{
-            headerStyle: {
-              backgroundColor: '#F2F2F2'
-            },
-            headerTintColor: '#00517A',
-            headerShadowVisible: false,
-            headerBackTitleVisible: false,
-          }}
-          initialParams={{index: 0, answer: '', timerCreation: 0, timerCount: 0}}
+          options={{headerShown: false}}
+          initialParams={{index: 0, answer: '', timerCount: 0, phase: 0}}
         />  
         <Stack.Screen
           name='Score'

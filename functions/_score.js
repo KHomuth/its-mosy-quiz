@@ -15,8 +15,6 @@ export default function setScore(score, evalAnswer) {
 
 export function increasePlayed() {
     playedQuestions = playedQuestions + 1;
-    console.log('played questions:' + playedQuestions);
-    return playedQuestions;
 }
 
 export function resetScore() {

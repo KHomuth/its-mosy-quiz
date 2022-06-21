@@ -17,9 +17,8 @@ export default function InfoPage({ navigation, route }) {
       return null;
     }
 
-    const {index, answer, timerCreation, timerCount} = route.params;
+    const {index, answer, timerCount, phase} = route.params;
     const rightAnswer = Questions.Fragen[index].Antworttext;
-
 
     const evalAnswer = (answer) => {
       let answerState = "";
@@ -53,20 +52,23 @@ export default function InfoPage({ navigation, route }) {
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
+          <View style={styles.textContainer}>
+            <Timer
+              timeLeft={timerCount}
+              selectedAnswer={''}
+              qPhase={phase}
+              qIndex={index+1}
+            />
+          </View>
           {evalAnswer(answer)}
-          <Timer
-            timeLeft={timerCount}
-            timeCreated={timerCreation}
-            selectedAnswer={''}
-          />
           <View style={styles.textContainer}> 
             <Text style={styles.text}>
               {rightAnswer}
             </Text>
-            <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
-            <Text style={styles.buttonText}>Beenden</Text>
-            </TouchableOpacity>
           </View>
+          <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
+            <Text style={styles.buttonText}>Beenden</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

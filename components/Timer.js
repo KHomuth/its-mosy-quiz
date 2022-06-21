@@ -1,36 +1,44 @@
 import * as React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
+import styles from "../assets/styles/Styles";
 import getTdData from "../functions/_getTdData";
+import * as RootNavigation from "./RootNavigation";
 
 export default function Timer ( props ) {
-    const calculateSec = (timeInMs) => {
-        return Math.floor((timeInMs / 1000) % 60);
-    } 
-    
-    const calculateTimeLeft = (startTime, timerInterval) => {
-        let date = new Date;
-        let currentTime = date.getTime();
-        let difference = calculateSec(timerInterval) - (calculateSec(currentTime) - calculateSec(startTime));
+    const millisToMinutesAndSeconds = (millis) => {
+        let minutes = Math.floor(millis / 60000);
+        let seconds = ((millis % 60000) / 1000).toFixed(0);
+        return (
+            seconds == 60 ?
+            (minutes+1) + ":00" :
+            minutes + ":" + (seconds < 10 ? "0" : "") + seconds
+        );
+      }
 
-        console.log(difference);
+    const calculateTimeLeft = (timeToEnd) => {
+        let difference = Math.floor((timeToEnd + 1000)/1000)*1000;
+        
         return difference;
     };
 
-    const [count, setCount] = React.useState(calculateTimeLeft(props.timeCreated, props.timeLeft));
+    const [count, setCount] = React.useState(calculateTimeLeft(props.timeLeft));
 
     React.useEffect(() => {
         if (!count) {
+            if (props.qPhase == 2 && props.qIndex == 5) {
+                RootNavigation.navigate('Score');
+            }
             getTdData(props.selectedAnswer);
             return;
         }
         const interval = setInterval(() => {
-            setCount(count - 1);
+            setCount(count - 1000);
         }, 1000);
 
         return () => clearInterval(interval);
     }, [count]);
 
     return (
-        <Text>{count}</Text>
+        <Text style={styles.text}>{millisToMinutesAndSeconds(count)}</Text>
     );
 };

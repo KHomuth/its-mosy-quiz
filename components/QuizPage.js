@@ -9,17 +9,16 @@ import sendTdData from "../functions/_sendTdData";
 import { increasePlayed } from "../functions/_score";
 
 export default function QuizPage({ route, navigation }) {
-  const { index, timerCreation, timerCount } = route.params;
+  const { index, timerCount, initialBtnState, phase } = route.params;
 
-  const [buttonAEnabled, setButtonAEnabled] = React.useState(false);
-  const [buttonBEnabled, setButtonBEnabled] = React.useState(false);
-  const [buttonCEnabled, setButtonCEnabled] = React.useState(false);
-  const [buttonDEnabled, setButtonDEnabled] = React.useState(false);
+  const [buttonAEnabled, setButtonAEnabled] = React.useState(initialBtnState);
+  const [buttonBEnabled, setButtonBEnabled] = React.useState(initialBtnState);
+  const [buttonCEnabled, setButtonCEnabled] = React.useState(initialBtnState);
+  const [buttonDEnabled, setButtonDEnabled] = React.useState(initialBtnState);
   const [answerSelectet, setAnswerSelected] = React.useState('');
 
   const selecting = (value) => {
     if (value == 'a') {
-      setButtonAEnabled(false);
       setButtonBEnabled(true);
       setButtonCEnabled(true);
       setButtonDEnabled(true);
@@ -27,7 +26,6 @@ export default function QuizPage({ route, navigation }) {
     }
     else if (value == 'b') {
       setButtonAEnabled(true);
-      setButtonBEnabled(false);
       setButtonCEnabled(true);
       setButtonDEnabled(true);
       setAnswerSelected('b');
@@ -35,7 +33,6 @@ export default function QuizPage({ route, navigation }) {
     else if (value == 'c') {
       setButtonAEnabled(true);
       setButtonBEnabled(true);
-      setButtonCEnabled(false);
       setButtonDEnabled(true);
       setAnswerSelected('c');
     }
@@ -43,7 +40,6 @@ export default function QuizPage({ route, navigation }) {
       setButtonAEnabled(true);
       setButtonBEnabled(true);
       setButtonCEnabled(true);
-      setButtonDEnabled(false);
       setAnswerSelected('d');
     };
   }
@@ -66,23 +62,14 @@ export default function QuizPage({ route, navigation }) {
 
   pushToArray(answerButtons);
 
-  const resetStates = () =>
-  {
-      setButtonAEnabled(false);
-      setButtonBEnabled(false);
-      setButtonCEnabled(false);
-      setButtonDEnabled(false);
-      setAnswerSelected('');
-      console.log('resetted states');
-  }
-
   return (
     <View style={styles.containerBackground}>
       <View style={styles.container}>
         <Timer
           timeLeft={timerCount}
-          timeCreated={timerCreation}
           selectedAnswer={answerSelectet}
+          qPhase={phase}
+          qIndex={index+1}
         />
         <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
         {answerButtons.map((item, itemIndex) => (
