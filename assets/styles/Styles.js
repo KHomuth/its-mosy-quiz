@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
         alignContent: 'center'
       },
       container: {
-        top: 85,
-        position: 'absolute',
         maxWidth: 768,
         flex: 1,
         justifyContent: 'center',
