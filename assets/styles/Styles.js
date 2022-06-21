@@ -45,6 +45,13 @@ const styles = StyleSheet.create({
         margin: 20,
         textAlign: 'center'
       },
+      modal: {
+        maxWidth: 768,
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignContent: 'center'
+      },
       modalText: {
         fontFamily: 'Roboto',
         fontSize: 20,

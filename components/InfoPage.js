@@ -26,7 +26,7 @@ export default function InfoPage({ navigation, route }) {
         answerState = 'right';
         setScore(initialScore, answerState);
         return (
-          <View style={styles.textContainer}>
+          <View style={styles.text}>
             <Text style={styles.titleText}>Richtige Antwort</Text>
           </View>
         );
@@ -34,7 +34,7 @@ export default function InfoPage({ navigation, route }) {
         answerState = 'wrong';
         setScore(initialScore, answerState);
         return (
-            <View style={styles.textContainer}>
+            <View style={styles.text}>
               <Text style={styles.titleText}>Keine Antwort abgegeben</Text>
             </View>
           );
@@ -42,7 +42,7 @@ export default function InfoPage({ navigation, route }) {
         answerState = 'wrong';
         setScore(initialScore, answerState);
         return (
-            <View style={styles.textContainer}>
+            <View style={styles.text}>
               <Text style={styles.titleText}>Falsche Antwort</Text>
             </View>
           );
@@ -52,7 +52,7 @@ export default function InfoPage({ navigation, route }) {
     return (
       <View style={styles.containerBackground}>
         <View style={styles.container}>
-          <View style={styles.textContainer}>
+          <View style={styles.text}>
             <Timer
               timeLeft={timerCount}
               selectedAnswer={''}
@@ -61,7 +61,7 @@ export default function InfoPage({ navigation, route }) {
             />
           </View>
           {evalAnswer(answer)}
-          <View style={styles.textContainer}> 
+          <View style={styles.text}> 
             <Text style={styles.text}>
               {rightAnswer}
             </Text>
