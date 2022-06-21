@@ -27,6 +27,7 @@ export default function Timer ( props ) {
         if (!count) {
             if (props.qPhase == 2 && props.qIndex == 5) {
                 RootNavigation.navigate('Score');
+                return;
             }
             getTdData(props.selectedAnswer);
             return;

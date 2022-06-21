@@ -9,8 +9,6 @@ export default async function getTdData(selectedAnswer) {
       
       const data = await response.json();
 
-      console.log(data);
-
       if (data.phase == 1) {
         RootNavigation.push('Quiz', {
           index: data.question-1,
