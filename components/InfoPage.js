@@ -31,6 +31,14 @@ export default function InfoPage({ navigation, route }) {
             <Text style={styles.titleText}>Richtige Antwort</Text>
           </View>
         );
+      } else if (answer === '') {
+        answerState = 'wrong';
+        setScore(initialScore, answerState);
+        return (
+            <View style={styles.textContainer}>
+              <Text style={styles.titleText}>Keine Antwort abgegeben</Text>
+            </View>
+          );
       } else {
         answerState = 'wrong';
         setScore(initialScore, answerState);
@@ -47,9 +55,10 @@ export default function InfoPage({ navigation, route }) {
         <View style={styles.container}>
           {evalAnswer(answer)}
           <Timer
-          timeLeft={timerCount}
-          timeCreated={timerCreation}
-        />
+            timeLeft={timerCount}
+            timeCreated={timerCreation}
+            selectedAnswer={''}
+          />
           <View style={styles.textContainer}> 
             <Text style={styles.text}>
               {rightAnswer}

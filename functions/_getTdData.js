@@ -1,6 +1,6 @@
 import * as RootNavigation from '../components/RootNavigation';
 
-export default async function getTdData() {
+export default async function getTdData(selectedAnswer) {
     try {
       const response = await fetch('http://192.168.2.103:9980/api/v1.0/question_and_phase'); //IP needs to be replaced with own local Server-URl!
       if (!response.ok) {
@@ -8,6 +8,8 @@ export default async function getTdData() {
       }
       
       const data = await response.json();
+
+      console.log(data);
 
       if (data.phase == 1) {
         RootNavigation.navigate('Quiz', {
@@ -18,6 +20,7 @@ export default async function getTdData() {
       } else if (data.phase == 2) {
         RootNavigation.navigate('Infos', {
           index: data.question-1,
+          answer: selectedAnswer,
           timerCreation: data.creation_timestamp,
           timerCount: data.ms_to_phase_end
         });

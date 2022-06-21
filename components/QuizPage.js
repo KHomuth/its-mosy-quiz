@@ -5,6 +5,8 @@ import Timer from "./Timer";
 import Questions from "../Questions.json";
 import { useFonts } from "expo-font";
 import styles from "../assets/styles/Styles";
+import sendTdData from "../functions/_sendTdData";
+import { increasePlayed } from "../functions/_score";
 
 export default function QuizPage({ route, navigation }) {
   const { index, timerCreation, timerCount } = route.params;
@@ -13,6 +15,7 @@ export default function QuizPage({ route, navigation }) {
   const [buttonBEnabled, setButtonBEnabled] = React.useState(false);
   const [buttonCEnabled, setButtonCEnabled] = React.useState(false);
   const [buttonDEnabled, setButtonDEnabled] = React.useState(false);
+  const [answerSelectet, setAnswerSelected] = React.useState('');
 
   const selecting = (value) => {
     if (value == 'a') {
@@ -20,24 +23,28 @@ export default function QuizPage({ route, navigation }) {
       setButtonBEnabled(true);
       setButtonCEnabled(true);
       setButtonDEnabled(true);
+      setAnswerSelected('a');
     }
     else if (value == 'b') {
       setButtonAEnabled(true);
       setButtonBEnabled(false);
       setButtonCEnabled(true);
       setButtonDEnabled(true);
+      setAnswerSelected('b');
     }
     else if (value == 'c') {
       setButtonAEnabled(true);
       setButtonBEnabled(true);
       setButtonCEnabled(false);
       setButtonDEnabled(true);
+      setAnswerSelected('c');
     }
     else if (value == 'd') {
       setButtonAEnabled(true);
       setButtonBEnabled(true);
       setButtonCEnabled(true);
       setButtonDEnabled(false);
+      setAnswerSelected('d');
     };
   }
   const [loaded] = useFonts({
@@ -57,26 +64,16 @@ export default function QuizPage({ route, navigation }) {
 
   let answerButtons = [];
 
-    pushToArray(answerButtons);
-    
-  const sendTdData = (question, answer) => {
-    const data = { 
-      "question": question,
-      "answer": answer  
-    };
+  pushToArray(answerButtons);
 
-    fetch('https://02a4-46-114-171-211.eu.ngrok.io/api/v1.0/answers', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .catch((error) => {
-      console.error('Error', error);
-    });
+  const resetStates = () =>
+  {
+      setButtonAEnabled(false);
+      setButtonBEnabled(false);
+      setButtonCEnabled(false);
+      setButtonDEnabled(false);
+      setAnswerSelected('');
+      console.log('resetted states');
   }
 
   return (
@@ -85,6 +82,7 @@ export default function QuizPage({ route, navigation }) {
         <Timer
           timeLeft={timerCount}
           timeCreated={timerCreation}
+          selectedAnswer={answerSelectet}
         />
         <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[index].Frage}</Text>
         {answerButtons.map((item, itemIndex) => (
@@ -100,8 +98,8 @@ export default function QuizPage({ route, navigation }) {
                   : item == 'c' ? buttonCEnabled
                     : buttonDEnabled
             }
-            onPress={() => {selecting(item); sendTdData(index, item);}}
-          />  //navigation.push('Infos', {index: (index), answer: item})
+            onPress={() => {selecting(item); sendTdData(index, item); increasePlayed();}}
+          />
         ))}
          <TouchableOpacity style={styles.buttonBeenden} onPress={() => navigation.navigate('Score')}>
             <Text style={styles.buttonText}>Beenden</Text>
