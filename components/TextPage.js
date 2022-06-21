@@ -35,6 +35,7 @@ export default class TextPage extends Component {
    render() {
       return (
         
+        <View style={styles.containerBackground}>
          <View style = {styles.container}>
           <Text style={styles.titleText}>Weiterführende Informationen</Text>
 
@@ -143,6 +144,7 @@ export default class TextPage extends Component {
                 </View>
                </ScrollView> 
             </Modal>
+         </View>
          </View>
       )
    }
