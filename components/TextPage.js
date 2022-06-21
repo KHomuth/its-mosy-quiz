@@ -52,9 +52,9 @@ export default class TextPage extends Component {
                <ScrollView> 
                 <View style = {styles.modal}>
                     <Text style={[styles.text, styles.textCenter]} >{Questions.Fragen[0].Zusatztext}</Text>
-                    <TouchableHighlight onPress = {() => {
+                    <TouchableHighlight style={styles.buttonBeenden} onPress = {() => {
                       this.toggleModal(!this.state.modalVisible)}}>
-                      <Text style = {styles.modalText}>Close</Text>
+                      <Text style = {styles.buttonText}>Schließen</Text>
                     </TouchableHighlight>
                 </View>
                </ScrollView> 
@@ -73,9 +73,9 @@ export default class TextPage extends Component {
                <ScrollView> 
                 <View style = {styles.modal}>
                 <Text style={[styles.text, styles.textCenter]} >{Questions.Fragen[1].Zusatztext}</Text>
-                    <TouchableHighlight onPress = {() => {
+                    <TouchableHighlight style={styles.buttonBeenden} onPress = {() => {
                       this.toggle1Modal(!this.state.modal1Visible)}}>
-                      <Text style = {styles.text}>Close</Text>
+                      <Text style = {styles.buttonText}>Schließen</Text>
                     </TouchableHighlight>
                 </View>
                </ScrollView> 
@@ -94,9 +94,9 @@ export default class TextPage extends Component {
                <ScrollView> 
                 <View style = {styles.modal}>
                 <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[2].Zusatztext}</Text>
-                    <TouchableHighlight onPress = {() => {
+                    <TouchableHighlight style={styles.buttonBeenden} onPress = {() => {
                       this.toggle2Modal(!this.state.modal2Visible)}}>
-                      <Text style = {styles.text}>Close</Text>
+                      <Text style = {styles.buttonText}>Schließen</Text>
                     </TouchableHighlight>
                 </View>
                </ScrollView> 
@@ -115,9 +115,9 @@ export default class TextPage extends Component {
                <ScrollView> 
                 <View style = {styles.modal}>
                 <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[3].Zusatztext}</Text>
-                    <TouchableHighlight onPress = {() => {
+                    <TouchableHighlight style={styles.buttonBeenden} onPress = {() => {
                       this.toggle3Modal(!this.state.modal3Visible)}}>
-                      <Text style = {styles.text}>Close</Text>
+                      <Text style = {styles.buttonText}>Schließen</Text>
                     </TouchableHighlight>
                 </View>
                </ScrollView> 
@@ -136,9 +136,9 @@ export default class TextPage extends Component {
                <ScrollView> 
                 <View style = {styles.modal}>
                 <Text style={[styles.text, styles.textCenter]}>{Questions.Fragen[4].Zusatztext}</Text> 
-                    <TouchableHighlight onPress = {() => {
+                    <TouchableHighlight style={styles.buttonBeenden} onPress = {() => {
                       this.toggle4Modal(!this.state.modal4Visible)}}>
-                      <Text style = {styles.text}>Close</Text>
+                      <Text style = {styles.buttonText}>Schließen</Text>
                     </TouchableHighlight>
                 </View>
                </ScrollView> 
@@ -147,27 +147,3 @@ export default class TextPage extends Component {
       )
    }
 }
-
-
-
-/*export default function TextPage({  navigation }) {
-    const [loaded] = useFonts({
-      Roboto: require('../assets/fonts/Roboto/Roboto-Regular.ttf'),
-      ZenLoop: require('../assets/fonts/Zen_Loop/ZenLoop-Regular.ttf'),
-    });
-      
-    if (!loaded) {
-      return null;
-    }
- 
-    return (
-        <View style={styles.textContainer}>
-          <Text style={styles.titleText}>Weiterführende Informationen</Text>
-          <Text style={[styles.text, styles.textCenter]} numberOfLines={4}>{Questions.Fragen[0].Zusatztext}</Text>
-          <Text style={[styles.text, styles.textCenter]} numberOfLines={4}>{Questions.Fragen[1].Zusatztext}</Text>
-          <Text style={[styles.text, styles.textCenter]} numberOfLines={4}>{Questions.Fragen[2].Zusatztext}</Text>
-          <Text style={[styles.text, styles.textCenter]} numberOfLines={4}>{Questions.Fragen[3].Zusatztext}</Text>
-          <Text style={[styles.text, styles.textCenter]} numberOfLines={4}>{Questions.Fragen[4].Zusatztext}</Text>        
-          </View>
-      );
-}*/
