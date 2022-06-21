@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         margin: 20,
         marginLeft: 30, 
         marginRight: 30,
-        textAlign: 'center'
+        textAlign: 'left'
       },
       button: {
         backgroundColor: '#00517A',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
       buttonText: {
         fontFamily: 'Roboto',
         fontSize: 20,
-        color: '#ece6dd',
+        color: '#f2f2f2',
         margin: 20,
         textAlign: 'center'
       },
