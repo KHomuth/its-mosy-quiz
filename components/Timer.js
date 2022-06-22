@@ -25,10 +25,10 @@ export default function Timer ( props ) {
 
     React.useEffect(() => {
         if (!count) {
-            if (props.qPhase == 2 && props.qIndex == 5) {
+            /*if (props.qPhase == 2 && props.qIndex == 5) {
                 RootNavigation.navigate('Score');
                 return;
-            } else if (props.interrupt == true) {
+            } else*/ if (props.interrupt == true) {
                 return;
             } else {
                 getTdData(props.selectedAnswer);
