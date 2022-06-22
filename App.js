@@ -27,7 +27,7 @@ export default function App() {
           name='Quiz'
           component={QuizPage}
           options={{headerShown: false}}
-          initialParams={{index: 0, timerCount: 0, initialBtnState: false, phase: 0}}
+          initialParams={{index: 0, timerCount: 0, initialBtnState: false, phase: 0, initialActiveState: true}}
         />
         <Stack.Screen
           name='Infos'

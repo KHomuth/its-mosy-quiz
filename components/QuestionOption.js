@@ -13,7 +13,7 @@ export default function QuestionOption (props) {
     }
 
   const addBtnStyle = (number) => {
-    if (props.selected == true) {
+    if (props.selected == true && props.isActive == false) {
       //graublau
       return { backgroundColor: '#DAE3F3' }
     }

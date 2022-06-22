@@ -14,7 +14,8 @@ export default async function getTdData(selectedAnswer) {
           index: data.question-1,
           timerCount: data.ms_to_phase_end,
           initialBtnState: false,
-          phase: data.phase
+          phase: data.phase,
+          initialActiveState: true
         });
       } else if (data.phase == 2) {
         RootNavigation.push('Infos', {
